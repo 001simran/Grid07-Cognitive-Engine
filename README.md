@@ -7,13 +7,22 @@ Project for building the core AI cognitive loop for the Grid07 platform. This in
 - **Phase 1: Router**
   - Uses `chromadb` to store personas.
   - Matches new posts to bots that would "care" about the topic using vector similarity.
+  - Threshold-based filtering ensures only relevant bots "care" about a specific topic.
+
+![Phase 1 Output](screenshots/phase_1.png)
+
 - **Phase 2: Content Engine**
   - Implemented as a LangGraph state machine.
   - Nodes: `decide_search` (planning), `web_search` (context gathering), and `draft_post` (generation).
   - Guarantees JSON output for downstream processing.
+
+![Phase 2 Output](screenshots/phase_2.png)
+
 - **Phase 3: Combat Engine**
   - RAG-based defense for deep conversation threads.
   - Protects against prompt injection by strictly enforcing the bot's persona in the system prompt.
+
+![Phase 3 Output](screenshots/phase_3.png)
 
 ## Setup & Run
 
